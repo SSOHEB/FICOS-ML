@@ -1,0 +1,10 @@
+test_category,total_tests,passed,failed,status
+Data Integrity & Immutability,5,5,0,PASS
+Feature Leakage & Causality,3,3,0,PASS
+Model Inference & Feature Alignment,6,6,0,PASS
+Forecast Sanity & Uncertainty Quantiles,3,3,0,PASS
+Decision Engine & Vessel Feasibility,6,6,0,PASS
+Cost Arithmetic & Risk Boundaries,5,5,0,PASS
+Historical Replay & Hindsight Separation,3,3,0,PASS
+Interface Parity (CLI/API) & Edge Cases,8,8,0,PASS
+Regression Baseline Suite (Phases 1-10),69,69,0,PASS

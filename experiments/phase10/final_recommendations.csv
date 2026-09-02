@@ -1,0 +1,10 @@
+decision_date,destination_port,cargo_quantity_mt,cargo_type,recommended_vessel,charter_action,optimal_entry_day,expected_cost_now_usd,expected_cost_optimal_usd,estimated_savings_usd,estimated_savings_pct,risk_level,audit_request_id
+2016-02-15,paradip,75000.0,Coking Coal,Panamax,CHARTER NOW,0,127650.0,127650.0,0.0,0.0,HIGH,4d385b17
+2016-08-10,vizag,55000.0,Thermal Coal,Supramax,FLEXIBLE / MONITOR,0,179832.0,179832.0,0.0,0.0,HIGH,4f6adf3b
+2017-06-20,gangavaram,170000.0,Iron Ore,Capesize,FLEXIBLE / MONITOR,7,365800.0,267318.4,98481.6,26.92,HIGH,5b1ae9b9
+2017-10-16,dhamra,75000.0,Coking Coal,Panamax,CHARTER NOW,0,397862.5,397862.5,0.0,0.0,MEDIUM,fce97c25
+2018-04-12,gopalpur,45000.0,Limestone,Supramax,FLEXIBLE / MONITOR,0,189960.0,189960.0,0.0,0.0,HIGH,1f8183b1
+2018-07-18,haldia,30000.0,Thermal Coal,Handysize,FLEXIBLE / MONITOR,0,112320.0,112320.0,0.0,0.0,MEDIUM,5fa974f5
+2018-09-25,dhamra,75000.0,Coking Coal,Panamax,CHARTER NOW,0,418775.0,418775.0,0.0,0.0,HIGH,de42c976
+2019-02-14,vizag,150000.0,Iron Ore,Panamax,CHARTER NOW,0,170062.5,170062.5,0.0,0.0,HIGH,e58d48ee
+2019-07-10,gangavaram,175000.0,Iron Ore,Capesize,CHARTER NOW,0,996080.0,996080.0,0.0,0.0,HIGH,0188df08

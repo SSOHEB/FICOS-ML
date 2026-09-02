@@ -1,0 +1,54 @@
+# FICOS ML - Feature Engineering Configuration (Phase 4)
+
+input:
+  dir: "data/processed"
+  filename: "master_dataset.csv"
+
+output:
+  dir: "data/features"
+  filename: "freight_features.csv"
+
+targets:
+  - "bdi_hsi"
+  - "bdi_si"
+  - "bdi_pi"
+  - "bdi_ci"
+
+lags:
+  autoregressive: [1, 2, 3, 5, 10, 21]
+  cross_vessel:
+    bdi_hsi: ["bdi_si"]
+    bdi_si: ["bdi_hsi", "bdi_pi"]
+    bdi_pi: ["bdi_si", "bdi_ci"]
+    bdi_ci: ["bdi_pi"]
+  cross_lags: [1, 5]
+
+transformations:
+  diff_windows: [1, 5, 21]
+  pct_change_windows: [1, 5, 21]
+
+rolling:
+  windows: [7, 30]
+  statistics: ["mean", "std", "min", "max"]
+  volatility_windows: [7, 30]
+
+exogenous:
+  energy:
+    columns: ["wti_usd_bbl", "brent_usd_bbl"]
+    lags: [1]
+    pct_changes: [1, 5]
+  fx:
+    columns: ["usd_inr"]
+    lags: [1]
+    pct_changes: [1, 5]
+  geopolitical:
+    columns: ["gpr", "gpr_acts", "gpr_threats"]
+    lags: [1]
+    pct_changes: [1, 7]
+    shock_ratios: [7, 30]
+  weather:
+    columns: ["wind_speed_max_kmh", "precip_mm", "pressure_hpa"]
+    lags: [1]
+
+calendar:
+  features: ["month", "quarter", "day_of_week"]

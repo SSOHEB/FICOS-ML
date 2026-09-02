@@ -1,0 +1,93 @@
+# FICOS ML - Expanded Feature Engineering Configuration
+# Supports Dual Freight Regimes: Baltic Exchange (2012-2019) & KOBC (2020+)
+
+input:
+  dir: "data/processed"
+  filename: "master_dataset.csv"
+
+output:
+  dir: "data/features"
+  filename: "freight_features_expanded.csv"
+
+regimes:
+  baltic:
+    source_name: "baltic"
+    targets:
+      - "bdi_hsi"
+      - "bdi_si"
+      - "bdi_pi"
+      - "bdi_ci"
+    cross_vessel:
+      bdi_hsi: ["bdi_si"]
+      bdi_si: ["bdi_hsi", "bdi_pi"]
+      bdi_pi: ["bdi_si", "bdi_ci"]
+      bdi_ci: ["bdi_pi"]
+
+  kobc:
+    source_name: "kobc"
+    targets:
+      - "kobc_handy"
+      - "kobc_supramax"
+      - "kobc_panamax"
+      - "kobc_cape"
+    explanatory_series:
+      - "kobc_kdci"
+    cross_vessel:
+      kobc_handy: ["kobc_supramax"]
+      kobc_supramax: ["kobc_handy", "kobc_panamax"]
+      kobc_panamax: ["kobc_supramax", "kobc_cape"]
+      kobc_cape: ["kobc_panamax", "kobc_kdci"]
+
+lags:
+  autoregressive: [1, 2, 3, 5, 10, 21]
+  cross_lags: [1, 5]
+
+transformations:
+  diff_windows: [1, 5, 21]
+  pct_change_windows: [1, 5, 21]
+  log_return_windows: [1, 5]
+
+rolling:
+  windows: [7, 30]
+  statistics: ["mean", "std", "min", "max"]
+  volatility_windows: [7, 30]
+  center: false
+
+exogenous:
+  energy:
+    columns: ["wti_usd_bbl", "brent_usd_bbl"]
+    lags: [1]
+    pct_changes: [1, 5]
+  fx:
+    columns: ["usd_inr"]
+    lags: [1]
+    pct_changes: [1, 5]
+  geopolitical:
+    columns: ["gpr", "gpr_acts", "gpr_threats"]
+    lags: [1]
+    pct_changes: [1, 7]
+    shock_ratios: [7, 30]
+  weather:
+    columns: ["wind_speed_max_kmh", "wind_gust_max_kmh", "precip_mm", "pressure_hpa"]
+    lags: [1]
+  commodities_monthly:
+    enabled: true
+    source_file: "data/raw/CMO-Historical-Data-Monthly.xlsx"
+    publication_lag_months: 1
+    series:
+      coal_australian_usd: "Coal, Australian"
+      coal_south_african_usd: "Coal, South African **"
+      iron_ore_cfr_usd: "Iron ore, cfr spot"
+      natural_gas_us_usd: "Natural gas, US"
+      natural_gas_europe_usd: "Natural gas, Europe"
+  fleet_annual:
+    enabled: true
+    source_file: "data/raw/US.MerchantFleet_20260901_183718.csv"
+    publication_lag_years: 1
+  port_operations:
+    enabled: true
+    source_file: "data/raw/datafile.xls"
+    publication_lag_years: 1
+
+calendar:
+  features: ["month", "quarter", "day_of_week", "day_of_year", "is_month_end"]

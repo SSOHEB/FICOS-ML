@@ -1,0 +1,10 @@
+edge_case_description,expected_error,error_pattern,result_message,passed,status
+Zero cargo quantity,True,Invalid cargo_quantity_mt,Invalid cargo_quantity_mt (0.0). Must be > 0.,True,PASS
+Negative cargo quantity,True,Invalid cargo_quantity_mt,Invalid cargo_quantity_mt (-1000.0). Must be > 0.,True,PASS
+Extremely small parcel (50 MT),False,N/A,Recommendation succeeded (Vessel: Handysize),True,PASS
+"Extremely large parcel (250,000 MT)",False,N/A,Recommendation succeeded (Vessel: Capesize),True,PASS
+Invalid destination port,True,Unsupported destination_port,"Unsupported destination_port 'unsupported_tokyo'. Supported ports: ['paradip', 'vizag', 'gangavaram', 'gopalpur', 'dhamra', 'sagar_sandheads', 'haldia']",True,PASS
+Invalid preferred vessel,True,Invalid preferred_vessel,"Invalid preferred_vessel 'AlienFreighter'. Supported vessels: ['Handysize', 'Supramax', 'Panamax', 'Capesize']",True,PASS
+Negative current freight spot,True,Invalid current_freight,Invalid current_freight (-50.0). Must be strictly positive (> 0).,True,PASS
+Out of bounds laycan (45 days),True,Invalid laycan_days_allowed,Invalid laycan_days_allowed (45). Must be between 1 and 30 days.,True,PASS
+Pre-dataset date (1995-01-01),True,No historical market data available,No historical market data available on or before decision_date '1995-01-01'. Earliest available date is 2012-08-01.,True,PASS

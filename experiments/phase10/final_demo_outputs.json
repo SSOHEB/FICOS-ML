@@ -1,0 +1,832 @@
+[
+  {
+    "decision_date": "2016-02-15",
+    "destination_port": "paradip",
+    "cargo_quantity_mt": 75000.0,
+    "cargo_type": "Coking Coal",
+    "forecast": {
+      "vessel_class": "Panamax",
+      "target_index": "bdi_pi",
+      "horizon_days": 7,
+      "values": [
+        341.2,
+        348.56,
+        356.07,
+        363.74,
+        371.59,
+        379.6,
+        387.78
+      ],
+      "p10": [
+        326.35,
+        327.55,
+        330.35,
+        334.04,
+        338.38,
+        343.22,
+        348.49
+      ],
+      "p50": [
+        341.2,
+        348.56,
+        356.07,
+        363.74,
+        371.59,
+        379.6,
+        387.78
+      ],
+      "p90": [
+        358.34,
+        372.79,
+        385.76,
+        398.02,
+        409.91,
+        421.58,
+        433.13
+      ]
+    },
+    "vessel": {
+      "recommended": "Panamax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax"
+      ],
+      "reason": "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Paradip Port max draft limit of 14.5m."
+    },
+    "decision": {
+      "action": "CHARTER NOW",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 127650.0,
+      "expected_cost_optimal_usd": 127650.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "High forecast uncertainty band (25.3% interval width at day 7).",
+        "Elevated historical freight return volatility (153.4% daily vol)."
+      ]
+    },
+    "reasons": [
+      "CHARTER NOW because Panamax freight rate is forecast to rise by +16.1% over the 7-day horizon. Fixing now avoids higher future hire rates.",
+      "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Paradip Port max draft limit of 14.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Paradip Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "4d385b17",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2016-02-15",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Panamax",
+      "rule_triggered": "RisingFreightMomentumThreshold",
+      "final_action": "CHARTER NOW",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2016-08-10",
+    "destination_port": "vizag",
+    "cargo_quantity_mt": 55000.0,
+    "cargo_type": "Thermal Coal",
+    "forecast": {
+      "vessel_class": "Supramax",
+      "target_index": "bdi_si",
+      "horizon_days": 7,
+      "values": [
+        637.8,
+        633.63,
+        629.48,
+        625.36,
+        621.27,
+        617.21,
+        613.17
+      ],
+      "p10": [
+        629.96,
+        622.54,
+        615.9,
+        609.68,
+        603.74,
+        598.0,
+        592.43
+      ],
+      "p50": [
+        637.8,
+        633.63,
+        629.48,
+        625.36,
+        621.27,
+        617.21,
+        613.17
+      ],
+      "p90": [
+        642.49,
+        640.26,
+        637.61,
+        634.74,
+        631.76,
+        628.7,
+        625.58
+      ]
+    },
+    "vessel": {
+      "recommended": "Supramax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax"
+      ],
+      "reason": "Recommended 'Supramax' as optimal capacity utilization for 55,000 MT satisfying Visakhapatnam (Vizag) Port max draft limit of 16.5m."
+    },
+    "decision": {
+      "action": "FLEXIBLE / MONITOR",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 179832.0,
+      "expected_cost_optimal_usd": 179832.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "Elevated historical freight return volatility (26.9% daily vol).",
+        "Coastal weather disruption alert at destination port approach."
+      ]
+    },
+    "reasons": [
+      "FLEXIBLE / MONITOR because projected freight movement (-4.5%) remains within the model's uncertainty range and daily market noise.",
+      "Recommended 'Supramax' as optimal capacity utilization for 55,000 MT satisfying Visakhapatnam (Vizag) Port max draft limit of 16.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Visakhapatnam (Vizag) Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "4f6adf3b",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2016-08-10",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Supramax",
+      "rule_triggered": "UncertaintyBandIndifference",
+      "final_action": "FLEXIBLE / MONITOR",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2017-06-20",
+    "destination_port": "gangavaram",
+    "cargo_quantity_mt": 170000.0,
+    "cargo_type": "Iron Ore",
+    "forecast": {
+      "vessel_class": "Capesize",
+      "target_index": "bdi_ci",
+      "horizon_days": 7,
+      "values": [
+        1043.6,
+        981.17,
+        922.48,
+        867.3,
+        815.41,
+        766.64,
+        720.78
+      ],
+      "p10": [
+        952.9,
+        852.9,
+        765.38,
+        685.9,
+        612.6,
+        544.47,
+        480.81
+      ],
+      "p50": [
+        1043.6,
+        981.17,
+        922.48,
+        867.3,
+        815.41,
+        766.64,
+        720.78
+      ],
+      "p90": [
+        1159.34,
+        1144.85,
+        1122.95,
+        1098.78,
+        1074.22,
+        1050.14,
+        1027.0
+      ]
+    },
+    "vessel": {
+      "recommended": "Capesize",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax",
+        "Capesize"
+      ],
+      "reason": "Recommended 'Capesize' as optimal capacity utilization for 170,000 MT satisfying Gangavaram Port max draft limit of 19.5m."
+    },
+    "decision": {
+      "action": "FLEXIBLE / MONITOR",
+      "optimal_entry_day": 7,
+      "expected_cost_now_usd": 365800.0,
+      "expected_cost_optimal_usd": 267318.4,
+      "estimated_savings_usd": 98481.6,
+      "estimated_savings_pct": 26.92
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "High forecast uncertainty band (49.2% interval width at day 7).",
+        "Capesize segment exhibits structural volatility and convex tail movements.",
+        "Elevated historical freight return volatility (314.2% daily vol).",
+        "Geopolitical Risk spike detected (1.51x above baseline MA30)."
+      ]
+    },
+    "reasons": [
+      "FLEXIBLE / MONITOR because projected freight movement (-35.1%) remains within the model's uncertainty range and daily market noise.",
+      "Recommended 'Capesize' as optimal capacity utilization for 170,000 MT satisfying Gangavaram Port max draft limit of 19.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Gangavaram Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "5b1ae9b9",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2017-06-20",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Capesize",
+      "rule_triggered": "UncertaintyBandIndifference",
+      "final_action": "FLEXIBLE / MONITOR",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2017-10-16",
+    "destination_port": "dhamra",
+    "cargo_quantity_mt": 75000.0,
+    "cargo_type": "Coking Coal",
+    "forecast": {
+      "vessel_class": "Panamax",
+      "target_index": "bdi_pi",
+      "horizon_days": 7,
+      "values": [
+        1676.8,
+        1717.57,
+        1759.33,
+        1802.1,
+        1845.91,
+        1890.79,
+        1936.76
+      ],
+      "p10": [
+        1661.95,
+        1696.57,
+        1733.61,
+        1772.4,
+        1812.71,
+        1854.42,
+        1897.47
+      ],
+      "p50": [
+        1676.8,
+        1717.57,
+        1759.33,
+        1802.1,
+        1845.91,
+        1890.79,
+        1936.76
+      ],
+      "p90": [
+        1693.94,
+        1741.81,
+        1789.01,
+        1836.38,
+        1884.24,
+        1932.78,
+        1982.11
+      ]
+    },
+    "vessel": {
+      "recommended": "Panamax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax"
+      ],
+      "reason": "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Dhamra Port max draft limit of 18.0m."
+    },
+    "decision": {
+      "action": "CHARTER NOW",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 397862.5,
+      "expected_cost_optimal_usd": 397862.5,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "MEDIUM",
+      "reasons": [
+        "Elevated historical freight return volatility (95.7% daily vol)."
+      ]
+    },
+    "reasons": [
+      "CHARTER NOW because Panamax freight rate is forecast to rise by +18.3% over the 7-day horizon. Fixing now avoids higher future hire rates.",
+      "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Dhamra Port max draft limit of 18.0m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Dhamra Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "fce97c25",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2017-10-16",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Panamax",
+      "rule_triggered": "RisingFreightMomentumThreshold",
+      "final_action": "CHARTER NOW",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2018-04-12",
+    "destination_port": "gopalpur",
+    "cargo_quantity_mt": 45000.0,
+    "cargo_type": "Limestone",
+    "forecast": {
+      "vessel_class": "Supramax",
+      "target_index": "bdi_si",
+      "horizon_days": 5,
+      "values": [
+        1008.4,
+        1002.83,
+        997.29,
+        991.78,
+        986.31
+      ],
+      "p10": [
+        1000.56,
+        991.74,
+        983.71,
+        976.1,
+        968.78
+      ],
+      "p50": [
+        1008.4,
+        1002.83,
+        997.29,
+        991.78,
+        986.31
+      ],
+      "p90": [
+        1013.09,
+        1009.46,
+        1005.42,
+        1001.16,
+        996.79
+      ]
+    },
+    "vessel": {
+      "recommended": "Supramax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax"
+      ],
+      "reason": "Recommended 'Supramax' as optimal capacity utilization for 45,000 MT satisfying Gopalpur Port max draft limit of 12.5m."
+    },
+    "decision": {
+      "action": "FLEXIBLE / MONITOR",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 189960.0,
+      "expected_cost_optimal_usd": 189960.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "Elevated historical freight return volatility (46.9% daily vol).",
+        "Geopolitical Risk spike detected (2.54x above baseline MA30)."
+      ]
+    },
+    "reasons": [
+      "FLEXIBLE / MONITOR because projected freight movement (-2.7%) remains within the model's uncertainty range and daily market noise.",
+      "Recommended 'Supramax' as optimal capacity utilization for 45,000 MT satisfying Gopalpur Port max draft limit of 12.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Gopalpur Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "1f8183b1",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2018-04-12",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Supramax",
+      "rule_triggered": "UncertaintyBandIndifference",
+      "final_action": "FLEXIBLE / MONITOR",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2018-07-18",
+    "destination_port": "haldia",
+    "cargo_quantity_mt": 30000.0,
+    "cargo_type": "Thermal Coal",
+    "forecast": {
+      "vessel_class": "Handysize",
+      "target_index": "bdi_hsi",
+      "horizon_days": 5,
+      "values": [
+        561.6,
+        562.2,
+        562.8,
+        563.4,
+        564.01
+      ],
+      "p10": [
+        558.48,
+        557.79,
+        557.4,
+        557.16,
+        557.03
+      ],
+      "p50": [
+        561.6,
+        562.2,
+        562.8,
+        563.4,
+        564.01
+      ],
+      "p90": [
+        564.64,
+        566.5,
+        568.07,
+        569.48,
+        570.8
+      ]
+    },
+    "vessel": {
+      "recommended": "Handysize",
+      "feasible_vessels": [
+        "Handysize"
+      ],
+      "reason": "Recommended 'Handysize' as optimal capacity utilization for 30,000 MT satisfying Haldia Dock Complex max draft limit of 8.5m."
+    },
+    "decision": {
+      "action": "FLEXIBLE / MONITOR",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 112320.0,
+      "expected_cost_optimal_usd": 112320.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "MEDIUM",
+      "reasons": [
+        "Elevated historical freight return volatility (26.1% daily vol)."
+      ]
+    },
+    "reasons": [
+      "FLEXIBLE / MONITOR because projected freight movement (+0.5%) remains within the model's uncertainty range and daily market noise.",
+      "Recommended 'Handysize' as optimal capacity utilization for 30,000 MT satisfying Haldia Dock Complex max draft limit of 8.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Haldia Dock Complex are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "5fa974f5",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2018-07-18",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Handysize",
+      "rule_triggered": "UncertaintyBandIndifference",
+      "final_action": "FLEXIBLE / MONITOR",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2018-09-25",
+    "destination_port": "dhamra",
+    "cargo_quantity_mt": 75000.0,
+    "cargo_type": "Coking Coal",
+    "forecast": {
+      "vessel_class": "Panamax",
+      "target_index": "bdi_pi",
+      "horizon_days": 7,
+      "values": [
+        1661.8,
+        1684.92,
+        1708.36,
+        1732.12,
+        1756.22,
+        1780.65,
+        1805.42
+      ],
+      "p10": [
+        1646.95,
+        1663.92,
+        1682.63,
+        1702.42,
+        1723.01,
+        1744.27,
+        1766.13
+      ],
+      "p50": [
+        1661.8,
+        1684.92,
+        1708.36,
+        1732.12,
+        1756.22,
+        1780.65,
+        1805.42
+      ],
+      "p90": [
+        1678.94,
+        1709.16,
+        1738.04,
+        1766.4,
+        1794.54,
+        1822.63,
+        1850.77
+      ]
+    },
+    "vessel": {
+      "recommended": "Panamax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax"
+      ],
+      "reason": "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Dhamra Port max draft limit of 18.0m."
+    },
+    "decision": {
+      "action": "CHARTER NOW",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 418775.0,
+      "expected_cost_optimal_usd": 418775.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "Elevated historical freight return volatility (89.1% daily vol).",
+        "Elevated Geopolitical Risk ratio (1.19x)."
+      ]
+    },
+    "reasons": [
+      "CHARTER NOW because Panamax freight rate is forecast to rise by +10.2% over the 7-day horizon. Fixing now avoids higher future hire rates.",
+      "Recommended 'Panamax' as optimal capacity utilization for 75,000 MT satisfying Dhamra Port max draft limit of 18.0m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Dhamra Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "de42c976",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2018-09-25",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Panamax",
+      "rule_triggered": "RisingFreightMomentumThreshold",
+      "final_action": "CHARTER NOW",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2019-02-14",
+    "destination_port": "vizag",
+    "cargo_quantity_mt": 150000.0,
+    "cargo_type": "Iron Ore",
+    "forecast": {
+      "vessel_class": "Panamax",
+      "target_index": "bdi_pi",
+      "horizon_days": 7,
+      "values": [
+        630.6,
+        642.42,
+        654.46,
+        666.72,
+        679.21,
+        691.94,
+        704.91
+      ],
+      "p10": [
+        615.75,
+        621.42,
+        628.74,
+        637.02,
+        646.01,
+        655.57,
+        665.62
+      ],
+      "p50": [
+        630.6,
+        642.42,
+        654.46,
+        666.72,
+        679.21,
+        691.94,
+        704.91
+      ],
+      "p90": [
+        647.74,
+        666.66,
+        684.14,
+        701.0,
+        717.54,
+        733.93,
+        750.26
+      ]
+    },
+    "vessel": {
+      "recommended": "Panamax",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax"
+      ],
+      "reason": "Recommended 'Panamax' as optimal capacity utilization for 150,000 MT satisfying Visakhapatnam (Vizag) Port max draft limit of 16.5m."
+    },
+    "decision": {
+      "action": "CHARTER NOW",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 170062.5,
+      "expected_cost_optimal_usd": 170062.5,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "Moderate forecast uncertainty (13.7% interval width).",
+        "Elevated historical freight return volatility (82.6% daily vol)."
+      ]
+    },
+    "reasons": [
+      "CHARTER NOW because Panamax freight rate is forecast to rise by +13.9% over the 7-day horizon. Fixing now avoids higher future hire rates.",
+      "Recommended 'Panamax' as optimal capacity utilization for 150,000 MT satisfying Visakhapatnam (Vizag) Port max draft limit of 16.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Visakhapatnam (Vizag) Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "e58d48ee",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2019-02-14",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Panamax",
+      "rule_triggered": "RisingFreightMomentumThreshold",
+      "final_action": "CHARTER NOW",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  },
+  {
+    "decision_date": "2019-07-10",
+    "destination_port": "gangavaram",
+    "cargo_quantity_mt": 175000.0,
+    "cargo_type": "Iron Ore",
+    "forecast": {
+      "vessel_class": "Capesize",
+      "target_index": "bdi_ci",
+      "horizon_days": 7,
+      "values": [
+        3445.4,
+        3531.92,
+        3620.61,
+        3711.53,
+        3804.73,
+        3900.28,
+        3998.22
+      ],
+      "p10": [
+        3354.7,
+        3403.65,
+        3463.51,
+        3530.13,
+        3601.92,
+        3678.11,
+        3758.25
+      ],
+      "p50": [
+        3445.4,
+        3531.92,
+        3620.61,
+        3711.53,
+        3804.73,
+        3900.28,
+        3998.22
+      ],
+      "p90": [
+        3561.14,
+        3695.6,
+        3821.08,
+        3943.01,
+        4063.54,
+        4183.78,
+        4304.44
+      ]
+    },
+    "vessel": {
+      "recommended": "Capesize",
+      "feasible_vessels": [
+        "Handysize",
+        "Supramax",
+        "Panamax",
+        "Capesize"
+      ],
+      "reason": "Recommended 'Capesize' as optimal capacity utilization for 175,000 MT satisfying Gangavaram Port max draft limit of 19.5m."
+    },
+    "decision": {
+      "action": "CHARTER NOW",
+      "optimal_entry_day": 0,
+      "expected_cost_now_usd": 996080.0,
+      "expected_cost_optimal_usd": 996080.0,
+      "estimated_savings_usd": 0.0,
+      "estimated_savings_pct": 0.0
+    },
+    "risk": {
+      "level": "HIGH",
+      "reasons": [
+        "Moderate forecast uncertainty (16.3% interval width).",
+        "Capesize segment exhibits structural volatility and convex tail movements.",
+        "Elevated historical freight return volatility (506.1% daily vol)."
+      ]
+    },
+    "reasons": [
+      "CHARTER NOW because Capesize freight rate is forecast to rise by +19.0% over the 7-day horizon. Fixing now avoids higher future hire rates.",
+      "Recommended 'Capesize' as optimal capacity utilization for 175,000 MT satisfying Gangavaram Port max draft limit of 19.5m."
+    ],
+    "assumptions": [
+      "Freight forecasts derived from production Ridge regression model (alpha=1.0).",
+      "Uncertainty intervals constructed from empirical walk-forward out-of-sample residual quantiles (P10/P90).",
+      "Port operational parameters for Gangavaram Port are prototype assumptions for decision support.",
+      "Decision is generated strictly using contemporaneous information available up to decision date."
+    ],
+    "audit": {
+      "request_id": "0188df08",
+      "timestamp": "2026-09-02 02:17:23",
+      "decision_date": "2019-07-10",
+      "model_name": "Ridge_a1.0",
+      "model_version": "Phase8_Production_Champion",
+      "features_count": 135,
+      "selected_vessel": "Capesize",
+      "rule_triggered": "RisingFreightMomentumThreshold",
+      "final_action": "CHARTER NOW",
+      "hindsight_oracle_available": false,
+      "hindsight_note": "Decision generated strictly using information available on or before decision_date. Hindsight benchmark is computed separately for retrospective evaluation."
+    }
+  }
+]

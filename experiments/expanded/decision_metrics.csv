@@ -1,0 +1,13 @@
+vessel,target,model,threshold_pct,total_days,charter_now_signals,wait_signals,flexible_signals,correct_charter_now,false_charter_now,correct_wait,false_wait,active_signal_accuracy_pct,overall_directional_accuracy_pct
+Handy,target_kobc_handy_next,Persistence,0.5,238,0,0,238,0,0,0,0,0.0,0.0
+Handy,target_kobc_handy_next,Ridge,0.5,238,177,21,40,103,74,16,5,60.1,60.92
+Handy,target_kobc_handy_next,XGBoost,0.5,238,95,71,72,55,40,34,37,53.61,54.2
+Supramax,target_kobc_supramax_next,Persistence,0.5,238,0,0,238,0,0,0,0,0.0,0.0
+Supramax,target_kobc_supramax_next,Ridge,0.5,238,29,134,75,26,3,80,54,65.03,62.18
+Supramax,target_kobc_supramax_next,XGBoost,0.5,238,31,160,47,26,5,87,73,59.16,62.61
+Panamax,target_kobc_panamax_next,Persistence,0.5,238,0,0,238,0,0,0,0,0.0,0.0
+Panamax,target_kobc_panamax_next,Ridge,0.5,238,61,104,73,50,11,69,35,72.12,63.87
+Panamax,target_kobc_panamax_next,XGBoost,0.5,238,101,69,68,69,32,45,24,67.06,63.45
+Cape,target_kobc_cape_next,Persistence,0.5,238,0,0,238,0,0,0,0,0.0,0.0
+Cape,target_kobc_cape_next,Ridge,0.5,238,101,90,47,70,31,53,37,64.4,62.61
+Cape,target_kobc_cape_next,XGBoost,0.5,238,98,111,29,62,36,63,48,59.81,59.24

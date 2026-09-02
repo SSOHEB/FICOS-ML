@@ -1,0 +1,40 @@
+# FICOS ML - Data Pipeline Configuration (Phase 2)
+
+raw:
+  dir: "data/raw"
+  filename: "master_daily.csv"
+
+processed:
+  dir: "data/processed"
+  filename: "master_dataset.csv"
+
+date_column: "date"
+date_format: "%Y-%m-%d"
+frequency: "D"
+
+schema:
+  date: "datetime64[ns]"
+  targets:
+    - "bdi_hsi"
+    - "bdi_si"
+    - "bdi_pi"
+    - "bdi_ci"
+  market_features:
+    - "wti_usd_bbl"
+    - "brent_usd_bbl"
+    - "usd_inr"
+  gpr_features:
+    - "gpr"
+    - "gpr_acts"
+    - "gpr_threats"
+    - "gpr_ma7"
+    - "gpr_ma30"
+    - "gpr_article_count"
+  weather_features:
+    - "wind_speed_max_kmh"
+    - "wind_gust_max_kmh"
+    - "precip_mm"
+    - "pressure_hpa"
+  trading_flags:
+    - "is_bdi_trading_day"
+    - "is_market_trading_day"

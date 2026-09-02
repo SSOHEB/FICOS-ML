@@ -1,0 +1,227 @@
+"""Build the Phase 6 XGBoost Jupyter Notebook."""
+
+import json
+from pathlib import Path
+
+notebook = {
+    "cells": [
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "# FICOS (Freight Intelligence & Charter Optimization System)\n",
+                "## Phase 6: XGBoost Regression Forecasting & Benchmark Comparison\n",
+                "\n",
+                "### 1. Objective\n",
+                "This notebook implements, evaluates, and diagnoses **XGBoost (Gradient Boosted Decision Trees)** for 1-step-ahead forecasting of Baltic dry-bulk freight sub-indices (`HSI`, `SI`, `PI`, `CI`) on the historical dataset.\n",
+                "\n",
+                "**Core Benchmark Question:**\n",
+                "> Can a non-linear tree-based model improve upon the Phase 5 Ridge regression baseline?"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 2. Imports & Setup"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "import sys\n",
+                "from pathlib import Path\n",
+                "import numpy as np\n",
+                "import pandas as pd\n",
+                "import matplotlib.pyplot as plt\n",
+                "import seaborn as sns\n",
+                "import xgboost as xgb\n",
+                "\n",
+                "# Add project root to sys.path\n",
+                "repo_root = Path.cwd().parent if Path.cwd().name == 'notebooks' else Path.cwd()\n",
+                "if str(repo_root) not in sys.path:\n",
+                "    sys.path.insert(0, str(repo_root))\n",
+                "\n",
+                "from src.models.evaluation import (\n",
+                "    split_chronological_holdout,\n",
+                "    compute_regression_metrics,\n",
+                "    run_phase6_xgboost_experiment,\n",
+                ")\n",
+                "from src.models.xgboost_model import XGBoostForecaster\n",
+                "from src.data.schemas import DATE_COLUMN, TARGET_COLUMNS\n",
+                "\n",
+                "print(f'XGBoost Version: {xgb.__version__}')\n",
+                "sns.set_theme(style='whitegrid', font_scale=1.0)\n",
+                "plt.rcParams['figure.figsize'] = (12, 6)"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 3. Load Feature Matrix & Chronological 80/20 Holdout Split"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "feat_path = repo_root / 'data' / 'features' / 'freight_features.csv'\n",
+                "df_feat = pd.read_csv(feat_path)\n",
+                "df_feat[DATE_COLUMN] = pd.to_datetime(df_feat[DATE_COLUMN])\n",
+                "\n",
+                "train_df, test_df = split_chronological_holdout(df_feat, train_ratio=0.80, drop_initial_cold_start=21)\n",
+                "print(f'Total Features Matrix: {df_feat.shape[0]:,} rows x {df_feat.shape[1]} columns')\n",
+                "print(f'Train Set: {len(train_df):,} sessions ({train_df[\"date\"].min().date()} to {train_df[\"date\"].max().date()})')\n",
+                "print(f'Test Set:  {len(test_df):,} sessions ({test_df[\"date\"].min().date()} to {test_df[\"date\"].max().date()})')"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 4. Execute Full Phase 6 XGBoost Benchmark Experiment"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "config_path = repo_root / 'configs' / 'models.yaml'\n",
+                "metrics_df, pred_df, imp_df, meta = run_phase6_xgboost_experiment(config_path)\n",
+                "print('Experiment Completed Successfully.')"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 5. Performance Comparison: Persistence vs Ridge vs XGBoost"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "display(metrics_df) if 'display' in globals() else print(metrics_df.to_string(index=False))"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 6. Summary Comparison by Metric (MAE & Directional Accuracy)"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "pivot_mae = metrics_df.pivot(index='model', columns='target', values='mae')\n",
+                "print('MAE Across Models:')\n",
+                "display(pivot_mae) if 'display' in globals() else print(pivot_mae)\n",
+                "\n",
+                "pivot_da = metrics_df.pivot(index='model', columns='target', values='da_pct')\n",
+                "print('\\nDirectional Accuracy (%) Across Models:')\n",
+                "display(pivot_da) if 'display' in globals() else print(pivot_da)"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 7. Feature Importance Analysis (Tree Gain Metric)"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "fig, axes = plt.subplots(2, 2, figsize=(16, 10))\n",
+                "axes = axes.flatten()\n",
+                "for i, tgt in enumerate(['bdi_hsi', 'bdi_si', 'bdi_pi', 'bdi_ci']):\n",
+                "    sub = imp_df[imp_df['target'] == tgt].head(8).sort_values(by='importance', ascending=True)\n",
+                "    axes[i].barh(sub['feature'], sub['importance'], color='#2ca02c')\n",
+                "    axes[i].set_title(f'Top 8 Features for {tgt.upper()} (Gain)', fontweight='bold')\n",
+                "    axes[i].set_xlabel('Gain Score')\n",
+                "\n",
+                "plt.tight_layout()\n",
+                "plt.show()"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 8. Forecasts vs Ground Truth in Test Period"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "dates = pd.to_datetime(pred_df['date'])\n",
+                "fig, axes = plt.subplots(2, 2, figsize=(16, 10))\n",
+                "axes = axes.flatten()\n",
+                "for i, tgt in enumerate(['bdi_hsi', 'bdi_si', 'bdi_pi', 'bdi_ci']):\n",
+                "    axes[i].plot(dates, pred_df[f'actual_{tgt}'], label='Actual Ground Truth', color='black', lw=1.5)\n",
+                "    axes[i].plot(dates, pred_df[f'pred_{tgt}_ridge'], label='Ridge', linestyle='--', color='#1f77b4', alpha=0.8)\n",
+                "    axes[i].plot(dates, pred_df[f'pred_{tgt}_xgboost'], label='XGBoost', color='#2ca02c', lw=1.3)\n",
+                "    axes[i].set_title(f'{tgt.upper()} Test Period Forecasts', fontweight='bold')\n",
+                "    axes[i].set_ylabel('Index Level')\n",
+                "    axes[i].legend(loc='upper left')\n",
+                "\n",
+                "plt.tight_layout()\n",
+                "plt.show()"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": ["### 9. Residual Error Diagnostics & Capesize Non-Linear Behavior"]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "fig, axes = plt.subplots(2, 2, figsize=(14, 8))\n",
+                "axes = axes.flatten()\n",
+                "for i, tgt in enumerate(['bdi_hsi', 'bdi_si', 'bdi_pi', 'bdi_ci']):\n",
+                "    actual = pred_df[f'actual_{tgt}']\n",
+                "    xgb_p = pred_df[f'pred_{tgt}_xgboost']\n",
+                "    res = actual - xgb_p\n",
+                "    sns.histplot(res, kde=True, ax=axes[i], color='#2ca02c', bins=30)\n",
+                "    axes[i].set_title(f'{tgt.upper()} XGBoost Residual Distribution (std={res.std():.2f})', fontweight='bold')\n",
+                "    axes[i].set_xlabel('Error')\n",
+                "\n",
+                "plt.tight_layout()\n",
+                "plt.show()"
+            ]
+        },
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "### 10. Key Findings & Phase 7 Strategy\n",
+                "1. **Ridge Outperforms Default XGBoost on Raw Index Levels**: Linear models extrapolate continuous autoregressive slopes smoothly, whereas decision trees partition continuous levels into step-wise constant buckets.\n",
+                "2. **Dominance of Autoregressive & Cross-Vessel Signals**: Over 80% of tree gain originates from lag-1 levels and cross-segment spillover features.\n",
+                "3. **Recommendation for Next Phase**: Formulate targets as returns/differences ($\\Delta Y_{t+1}$) or train hybrid Ridge + residual boosting models."
+            ]
+        }
+    ],
+    "metadata": {
+        "language_info": {"name": "python", "version": "3.13.14"},
+        "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"}
+    },
+    "nbformat": 4,
+    "nbformat_minor": 5
+}
+
+out_path = Path("notebooks/phase6_xgboost.ipynb")
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(notebook, f, indent=2)
+
+print(f"Generated {out_path} successfully.")

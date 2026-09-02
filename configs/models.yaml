@@ -1,0 +1,67 @@
+# FICOS ML - Models Configuration (Phases 5-8)
+
+data:
+  features_path: "data/features/freight_features.csv"
+  date_column: "date"
+  train_ratio: 0.80
+  drop_initial_cold_start: 21
+
+targets:
+  bdi_hsi:
+    target_col: "target_bdi_hsi_next"
+    level_col: "bdi_hsi_level"
+  bdi_si:
+    target_col: "target_bdi_si_next"
+    level_col: "bdi_si_level"
+  bdi_pi:
+    target_col: "target_bdi_pi_next"
+    level_col: "bdi_pi_level"
+  bdi_ci:
+    target_col: "target_bdi_ci_next"
+    level_col: "bdi_ci_level"
+
+baselines:
+  moving_average:
+    windows: [3, 5, 10, 21]
+  ridge:
+    alphas: [0.1, 1.0, 10.0, 100.0]
+    scale_features: true
+
+xgboost:
+  n_estimators: 150
+  max_depth: 4
+  learning_rate: 0.05
+  subsample: 0.8
+  colsample_bytree: 0.8
+  min_child_weight: 3.0
+  reg_alpha: 0.1
+  reg_lambda: 1.0
+  random_state: 42
+  n_jobs: -1
+
+lstm:
+  lookback: 21
+  hidden_size: 64
+  dense_units: 32
+  num_layers: 1
+  dropout: 0.15
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 32
+  max_epochs: 60
+  early_stopping_patience: 10
+  val_ratio: 0.15
+  random_seed: 42
+
+walk_forward:
+  n_folds: 5
+  test_window_size: 200
+  include_lstm: true
+  evaluate_ensemble: true
+  ensemble_models: ["Ridge_a1.0", "XGBoost"]
+
+output:
+  phase5_experiment_dir: "experiments/phase5"
+  phase6_experiment_dir: "experiments/phase6"
+  phase7_experiment_dir: "experiments/phase7"
+  phase8_experiment_dir: "experiments/phase8"

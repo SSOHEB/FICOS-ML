@@ -1,0 +1,4 @@
+test_case,service_action,cli_action,service_vessel,cli_vessel,service_cost_now,cli_cost_now,service_risk,cli_risk,interface_parity,status
+dhamra_75000mt_2018-09-25,CHARTER NOW,CHARTER NOW,Panamax,Panamax,418775.0,418775.0,HIGH,HIGH,True,PASS
+haldia_30000mt_2018-07-18,FLEXIBLE / MONITOR,FLEXIBLE / MONITOR,Handysize,Handysize,196470.0,196470.0,MEDIUM,MEDIUM,True,PASS
+gangavaram_170000mt_2017-06-20,FLEXIBLE / MONITOR,FLEXIBLE / MONITOR,Capesize,Capesize,254800.0,254800.0,HIGH,HIGH,True,PASS

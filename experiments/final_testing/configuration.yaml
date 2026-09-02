@@ -1,0 +1,31 @@
+artifacts_saved:
+- experiments/final_testing/test_summary.csv
+- experiments/final_testing/leakage_test_results.csv
+- experiments/final_testing/scenario_test_results.csv
+- experiments/final_testing/edge_case_results.csv
+- experiments/final_testing/interface_test_results.csv
+- experiments/final_testing/configuration.yaml
+champion_model: Ridge Regression (alpha=1.0)
+feature_count: 135
+phase: 10.5 Final System Testing & Validation
+supported_ports:
+- paradip
+- vizag
+- gangavaram
+- gopalpur
+- dhamra
+- sagar_sandheads
+- haldia
+supported_vessels:
+- Handysize
+- Supramax
+- Panamax
+- Capesize
+system: FICOS Freight Intelligence & Charter Optimization System
+validation_summary:
+  failed: 0
+  new_tests: 36
+  old_tests: 69
+  passed: 105
+  skipped: 0
+  total_tests: 105

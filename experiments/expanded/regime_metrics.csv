@@ -1,0 +1,46 @@
+vessel,target,regime,observation_count,model,mae,rmse,smape,r2,da_pct
+Handy,target_kobc_handy_next,Normal_Freight (Q25-Q75),238,Persistence,90.27,136.81,0.77,0.9954,0.0
+Handy,target_kobc_handy_next,Normal_Freight (Q25-Q75),238,Ridge,186.83,229.13,1.57,0.9872,60.92
+Handy,target_kobc_handy_next,Normal_Freight (Q25-Q75),238,XGBoost,281.81,417.35,2.07,0.9575,54.2
+Handy,target_kobc_handy_next,Rising_Market (5d_diff > 0),138,Persistence,98.38,135.06,0.82,0.9953,0.0
+Handy,target_kobc_handy_next,Rising_Market (5d_diff > 0),138,Ridge,189.81,226.62,1.55,0.9867,69.57
+Handy,target_kobc_handy_next,Rising_Market (5d_diff > 0),138,XGBoost,279.49,396.96,2.04,0.9593,53.62
+Handy,target_kobc_handy_next,Falling_Market (5d_diff < 0),100,Persistence,79.08,139.19,0.7,0.9954,0.0
+Handy,target_kobc_handy_next,Falling_Market (5d_diff < 0),100,Ridge,182.72,232.55,1.59,0.9872,49.0
+Handy,target_kobc_handy_next,Falling_Market (5d_diff < 0),100,XGBoost,285.02,443.94,2.13,0.9535,55.0
+Supramax,target_kobc_supramax_next,Normal_Freight (Q25-Q75),238,Persistence,166.56,242.57,0.99,0.9908,0.0
+Supramax,target_kobc_supramax_next,Normal_Freight (Q25-Q75),238,Ridge,178.88,233.08,1.02,0.9915,62.18
+Supramax,target_kobc_supramax_next,Normal_Freight (Q25-Q75),238,XGBoost,273.97,341.34,1.52,0.9818,62.61
+Supramax,target_kobc_supramax_next,Rising_Market (5d_diff > 0),137,Persistence,166.32,229.09,0.96,0.9913,0.0
+Supramax,target_kobc_supramax_next,Rising_Market (5d_diff > 0),137,Ridge,187.92,223.9,1.03,0.9917,62.77
+Supramax,target_kobc_supramax_next,Rising_Market (5d_diff > 0),137,XGBoost,304.49,365.3,1.64,0.9778,57.66
+Supramax,target_kobc_supramax_next,Falling_Market (5d_diff < 0),101,Persistence,166.89,259.75,1.03,0.9892,0.0
+Supramax,target_kobc_supramax_next,Falling_Market (5d_diff < 0),101,Ridge,166.63,244.97,1.0,0.9904,61.39
+Supramax,target_kobc_supramax_next,Falling_Market (5d_diff < 0),101,XGBoost,232.56,305.83,1.36,0.985,69.31
+Panamax,target_kobc_panamax_next,Low_Freight (<= Q25),16,Persistence,348.25,423.7,2.87,0.6223,0.0
+Panamax,target_kobc_panamax_next,Low_Freight (<= Q25),16,Ridge,288.15,398.91,2.37,0.6652,68.75
+Panamax,target_kobc_panamax_next,Low_Freight (<= Q25),16,XGBoost,322.85,400.81,2.7,0.662,50.0
+Panamax,target_kobc_panamax_next,Normal_Freight (Q25-Q75),217,Persistence,248.24,336.34,1.35,0.9729,0.0
+Panamax,target_kobc_panamax_next,Normal_Freight (Q25-Q75),217,Ridge,231.57,312.11,1.26,0.9766,63.59
+Panamax,target_kobc_panamax_next,Normal_Freight (Q25-Q75),217,XGBoost,250.44,330.47,1.37,0.9738,63.59
+Panamax,target_kobc_panamax_next,High_Freight (> Q75),5,Persistence,334.8,471.8,1.43,0.1135,0.0
+Panamax,target_kobc_panamax_next,High_Freight (> Q75),5,Ridge,379.35,422.62,1.62,0.2887,60.0
+Panamax,target_kobc_panamax_next,High_Freight (> Q75),5,XGBoost,201.67,244.13,0.86,0.7626,100.0
+Panamax,target_kobc_panamax_next,Rising_Market (5d_diff > 0),145,Persistence,223.32,294.63,1.21,0.9868,0.0
+Panamax,target_kobc_panamax_next,Rising_Market (5d_diff > 0),145,Ridge,209.1,272.99,1.12,0.9887,66.9
+Panamax,target_kobc_panamax_next,Rising_Market (5d_diff > 0),145,XGBoost,219.93,283.35,1.18,0.9878,63.45
+Panamax,target_kobc_panamax_next,Falling_Market (5d_diff < 0),93,Persistence,308.96,414.09,1.85,0.976,0.0
+Panamax,target_kobc_panamax_next,Falling_Market (5d_diff < 0),93,Ridge,284.27,384.81,1.7,0.9792,59.14
+Panamax,target_kobc_panamax_next,Falling_Market (5d_diff < 0),93,XGBoost,307.84,400.61,1.86,0.9775,63.44
+Cape,target_kobc_cape_next,Normal_Freight (Q25-Q75),51,Persistence,957.67,1247.78,3.53,0.5285,0.0
+Cape,target_kobc_cape_next,Normal_Freight (Q25-Q75),51,Ridge,875.88,1259.07,3.25,0.5199,70.59
+Cape,target_kobc_cape_next,Normal_Freight (Q25-Q75),51,XGBoost,912.8,1233.94,3.38,0.5389,60.78
+Cape,target_kobc_cape_next,High_Freight (> Q75),187,Persistence,1179.18,1496.87,3.1,0.9613,0.0
+Cape,target_kobc_cape_next,High_Freight (> Q75),187,Ridge,1158.98,1477.58,3.05,0.9622,60.43
+Cape,target_kobc_cape_next,High_Freight (> Q75),187,XGBoost,1441.08,1964.45,3.62,0.9333,58.82
+Cape,target_kobc_cape_next,Rising_Market (5d_diff > 0),142,Persistence,1112.42,1438.9,2.97,0.9682,0.0
+Cape,target_kobc_cape_next,Rising_Market (5d_diff > 0),142,Ridge,1159.55,1453.33,3.09,0.9676,57.75
+Cape,target_kobc_cape_next,Rising_Market (5d_diff > 0),142,XGBoost,1346.21,1846.95,3.43,0.9477,56.34
+Cape,target_kobc_cape_next,Falling_Market (5d_diff < 0),96,Persistence,1160.26,1459.16,3.52,0.963,0.0
+Cape,target_kobc_cape_next,Falling_Market (5d_diff < 0),96,Ridge,1007.73,1403.81,3.1,0.9658,69.79
+Cape,target_kobc_cape_next,Falling_Market (5d_diff < 0),96,XGBoost,1300.76,1811.16,3.77,0.9431,63.54

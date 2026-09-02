@@ -1,0 +1,11 @@
+scenario_id,requested_date,historical_decision_date,cargo_type,cargo_quantity_mt,origin,destination_port,context
+SCN_01_PARADIP_COAL_2016_TROUGH,2016-02-15,2016-02-15,Coking Coal,75000.0,"Gladstone, Australia",paradip,Market Crash / Record Low Freight Levels
+SCN_02_VIZAG_COAL_2016_RECOVERY,2016-08-10,2016-08-10,Thermal Coal,55000.0,"Richards Bay, South Africa",vizag,Early Freight Recovery Momentum
+SCN_03_GANGAVARAM_ORE_2017_BULL,2017-06-20,2017-06-20,Iron Ore,170000.0,"Tubarao, Brazil",gangavaram,Capesize Cyclical Bull Rally
+SCN_04_DHAMRA_COAL_2017_EXPANSION,2017-10-16,2017-10-16,Coking Coal,75000.0,"Hay Point, Australia",dhamra,Sustained Freight Expansion Cycle
+SCN_05_GOPALPUR_LIMESTONE_2018_PEAK,2018-04-12,2018-04-12,Limestone,45000.0,"Mina Saqr, UAE",gopalpur,Draft-Constrained Port / Supramax Allocation
+SCN_06_HALDIA_COAL_2018_DRAFT_RESTRICTED,2018-07-18,2018-07-18,Thermal Coal,30000.0,"Tanjung Bara, Indonesia",haldia,Shallow Draft Port / Handysize Mandatory
+SCN_07_PARADIP_COAL_2018_TARIFF_SHOCK,2018-09-25,2018-09-25,Coking Coal,75000.0,"Gladstone, Australia",paradip,High Volatility / US-China Tariff Dispute
+SCN_08_VIZAG_ORE_2019_BRUMADINHO_SLUMP,2019-02-14,2019-02-14,Iron Ore,150000.0,"Port Hedland, Australia",vizag,Post-Dam Disaster Market Shock
+SCN_09_DHAMRA_COAL_2019_PRE_MONSOON,2019-05-20,2019-05-20,Coking Coal,70000.0,"Newcastle, Australia",dhamra,Pre-Monsoon Restocking
+SCN_10_GANGAVARAM_ORE_2019_CAPESIZE_SQUEEZE,2019-07-10,2019-07-10,Iron Ore,175000.0,"Tubarao, Brazil",gangavaram,Extreme July 2019 Capesize Freight Squeeze

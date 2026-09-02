@@ -1,0 +1,9 @@
+Dataset: Merchant fleet: World fleet by flag of registration and ship type - Core indicators - Annual (analytical)
+
+Page Filters: 
+	Ship type: Total fleet 
+
+
+Download Type: Pivot
+
+Language: English

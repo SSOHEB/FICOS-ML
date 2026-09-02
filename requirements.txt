@@ -1,0 +1,23 @@
+# Core Data & Numerical Computing
+numpy>=1.26.0
+pandas>=2.2.0
+scipy>=1.13.0
+
+# Machine Learning & Time-Series Modeling
+scikit-learn>=1.4.0
+statsmodels>=0.14.0
+xgboost>=2.0.0
+torch>=2.2.0
+
+# Visualization & Reporting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Configuration & Utilities
+pyyaml>=6.0.1
+python-dotenv>=1.0.1
+openpyxl>=3.1.2
+xlrd>=2.0.1
+
+# Testing
+pytest>=8.0.0

@@ -1,0 +1,10 @@
+component,status,details
+Data Pipeline,VERIFIED,"2,556 calendar days master dataset, 0 missingness on trading days"
+Feature Engineering,VERIFIED,"135 causal features, 0 future leakage verified"
+Forecasting Champion,VERIFIED,Ridge (alpha=1.0) winner across all 4 vessel indices in 5-fold walk-forward
+Empirical Uncertainty,VERIFIED,P10/P50/P90 error quantiles derived from walk-forward holdouts
+Port Constraints,VERIFIED,7 East Coast Indian ports with physical draft/DWT limits
+Cost Engine,VERIFIED,Freight sea hire + Port stay demurrage + Cargo holding cost
+Risk Engine,VERIFIED,Volatility + Forecast dispersion + GPR spike + Weather alert
+Decision Logic,VERIFIED,Explainable CHARTER NOW / WAIT / FLEXIBLE rules
+Application Integration,VERIFIED,"Service layer, CLI demo, REST API handler, audit logging"

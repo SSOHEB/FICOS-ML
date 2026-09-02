@@ -1,0 +1,17 @@
+mae,rmse,mape,smape,r2,da_pct,model,target,vessel,split
+90.27,136.81,0.77,0.77,0.9954,0.0,Persistence,target_kobc_handy_next,Handy,test
+186.83,229.13,1.59,1.57,0.9872,60.92,Ridge,target_kobc_handy_next,Handy,test
+281.81,417.35,2.1,2.07,0.9575,54.2,XGBoost,target_kobc_handy_next,Handy,test
+2024.09,2665.43,15.42,13.8,-0.6785,50.66,LSTM,target_kobc_handy_next,Handy,test
+166.56,242.57,0.99,0.99,0.9908,0.0,Persistence,target_kobc_supramax_next,Supramax,test
+178.88,233.08,1.02,1.02,0.9915,62.18,Ridge,target_kobc_supramax_next,Supramax,test
+273.97,341.34,1.51,1.52,0.9818,62.61,XGBoost,target_kobc_supramax_next,Supramax,test
+2111.72,2804.5,11.35,10.41,-0.1799,57.21,LSTM,target_kobc_supramax_next,Supramax,test
+256.78,346.25,1.46,1.46,0.9831,0.0,Persistence,target_kobc_panamax_next,Panamax,test
+238.48,321.35,1.34,1.34,0.9854,63.87,Ridge,target_kobc_panamax_next,Panamax,test
+254.28,334.1,1.45,1.45,0.9842,63.45,XGBoost,target_kobc_panamax_next,Panamax,test
+2008.2,2512.97,11.29,10.38,0.1288,55.02,LSTM,target_kobc_panamax_next,Panamax,test
+1131.71,1447.1,3.19,3.19,0.9682,0.0,Persistence,target_kobc_cape_next,Cape,test
+1098.31,1433.56,3.08,3.09,0.9688,62.61,Ridge,target_kobc_cape_next,Cape,test
+1327.87,1832.6,3.56,3.57,0.949,59.24,XGBoost,target_kobc_cape_next,Cape,test
+3352.38,4057.19,9.23,9.44,0.7494,55.02,LSTM,target_kobc_cape_next,Cape,test

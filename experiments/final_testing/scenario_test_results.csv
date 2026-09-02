@@ -1,0 +1,11 @@
+scenario_id,decision_date,regime,destination_port,cargo_quantity_mt,recommended_vessel,vessel_feasible,action,optimal_entry_day,cost_now_usd,cost_optimal_usd,savings_usd,savings_pct,risk_level,p10_p50_p90_valid,hindsight_isolated
+SCN_01,2016-02-15,Crash/Trough,paradip,75000,Panamax,True,CHARTER NOW,0,127650.0,127650.0,0.0,0.0,HIGH,True,True
+SCN_02,2016-08-10,Early Recovery,vizag,55000,Supramax,True,FLEXIBLE / MONITOR,0,215784.0,215784.0,0.0,0.0,HIGH,True,True
+SCN_03,2017-06-20,Bull Rally,gangavaram,170000,Capesize,True,FLEXIBLE / MONITOR,7,254800.0,195240.4,59559.6,23.38,HIGH,True,True
+SCN_04,2017-10-16,Expansion Cycle,dhamra,75000,Panamax,True,CHARTER NOW,0,418325.0,418325.0,0.0,0.0,MEDIUM,True,True
+SCN_05,2018-04-12,Draft Constrained,gopalpur,45000,Supramax,True,FLEXIBLE / MONITOR,0,303528.0,303528.0,0.0,0.0,HIGH,True,True
+SCN_06,2018-07-18,Shallow Draft,haldia,30000,Handysize,True,FLEXIBLE / MONITOR,0,196470.0,196470.0,0.0,0.0,MEDIUM,True,True
+SCN_07,2018-09-25,Tariff Shock,paradip,75000,Panamax,True,CHARTER NOW,0,421275.0,421275.0,0.0,0.0,HIGH,True,True
+SCN_08,2019-02-14,Dam Disaster Slump,vizag,150000,Panamax,True,CHARTER NOW,0,193275.0,193275.0,0.0,0.0,HIGH,True,True
+SCN_09,2019-05-20,Pre-Monsoon Restock,dhamra,70000,Panamax,True,CHARTER NOW,0,332600.0,332600.0,0.0,0.0,MEDIUM,True,True
+SCN_10,2019-07-10,Freight Squeeze,gangavaram,175000,Capesize,True,CHARTER NOW,0,659980.0,659980.0,0.0,0.0,HIGH,True,True

@@ -1,0 +1,60 @@
+baselines:
+  moving_average:
+    windows:
+    - 3
+    - 5
+    - 10
+    - 21
+  ridge:
+    alphas:
+    - 0.1
+    - 1.0
+    - 10.0
+    - 100.0
+    scale_features: true
+data:
+  date_column: date
+  drop_initial_cold_start: 21
+  features_path: data/features/freight_features.csv
+  train_ratio: 0.8
+lstm:
+  batch_size: 32
+  dense_units: 32
+  dropout: 0.15
+  early_stopping_patience: 10
+  hidden_size: 64
+  learning_rate: 0.001
+  lookback: 21
+  max_epochs: 60
+  num_layers: 1
+  random_seed: 42
+  val_ratio: 0.15
+  weight_decay: 0.0001
+output:
+  phase5_experiment_dir: experiments/phase5
+  phase6_experiment_dir: experiments/phase6
+  phase7_experiment_dir: experiments/phase7
+targets:
+  bdi_ci:
+    level_col: bdi_ci_level
+    target_col: target_bdi_ci_next
+  bdi_hsi:
+    level_col: bdi_hsi_level
+    target_col: target_bdi_hsi_next
+  bdi_pi:
+    level_col: bdi_pi_level
+    target_col: target_bdi_pi_next
+  bdi_si:
+    level_col: bdi_si_level
+    target_col: target_bdi_si_next
+xgboost:
+  colsample_bytree: 0.8
+  learning_rate: 0.05
+  max_depth: 4
+  min_child_weight: 3.0
+  n_estimators: 150
+  n_jobs: -1
+  random_state: 42
+  reg_alpha: 0.1
+  reg_lambda: 1.0
+  subsample: 0.8

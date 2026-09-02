@@ -1,0 +1,140 @@
+# FICOS ML - Phase 9 Port Constraints & Operational Assumptions
+# IMPORTANT: Values marked with prototype_assumption: true represent calibrated prototype values
+# for decision-support modeling and must NOT be interpreted as official nautical limits.
+
+ports:
+  paradip:
+    name: "Paradip Port"
+    state: "Odisha"
+    prototype_assumption: true
+    max_draft_m: 14.5
+    max_loa_m: 230.0
+    max_beam_m: 32.5
+    max_dwt: 85000
+    allowed_vessels: ["Handysize", "Supramax", "Panamax"]
+    handling_rate_tpd: 25000
+    turnaround_days_assumption: 3.5
+    waiting_days_assumption: 2.0
+    demurrage_usd_per_day: 15000
+
+  vizag:
+    name: "Visakhapatnam (Vizag) Port"
+    state: "Andhra Pradesh"
+    prototype_assumption: true
+    max_draft_m: 16.5
+    max_loa_m: 280.0
+    max_beam_m: 45.0
+    max_dwt: 150000
+    allowed_vessels: ["Handysize", "Supramax", "Panamax", "Capesize"]
+    handling_rate_tpd: 30000
+    turnaround_days_assumption: 3.0
+    waiting_days_assumption: 1.5
+    demurrage_usd_per_day: 18000
+
+  gangavaram:
+    name: "Gangavaram Port"
+    state: "Andhra Pradesh"
+    prototype_assumption: true
+    max_draft_m: 19.5
+    max_loa_m: 330.0
+    max_beam_m: 55.0
+    max_dwt: 200000
+    allowed_vessels: ["Handysize", "Supramax", "Panamax", "Capesize"]
+    handling_rate_tpd: 45000
+    turnaround_days_assumption: 2.5
+    waiting_days_assumption: 1.0
+    demurrage_usd_per_day: 22000
+
+  gopalpur:
+    name: "Gopalpur Port"
+    state: "Odisha"
+    prototype_assumption: true
+    max_draft_m: 12.5
+    max_loa_m: 200.0
+    max_beam_m: 30.0
+    max_dwt: 55000
+    allowed_vessels: ["Handysize", "Supramax"]
+    handling_rate_tpd: 18000
+    turnaround_days_assumption: 4.0
+    waiting_days_assumption: 2.0
+    demurrage_usd_per_day: 12000
+
+  dhamra:
+    name: "Dhamra Port"
+    state: "Odisha"
+    prototype_assumption: true
+    max_draft_m: 18.0
+    max_loa_m: 310.0
+    max_beam_m: 50.0
+    max_dwt: 180000
+    allowed_vessels: ["Handysize", "Supramax", "Panamax", "Capesize"]
+    handling_rate_tpd: 40000
+    turnaround_days_assumption: 2.5
+    waiting_days_assumption: 1.2
+    demurrage_usd_per_day: 20000
+
+  sagar_sandheads:
+    name: "Sagar-Sandheads Anchorage"
+    state: "West Bengal"
+    prototype_assumption: true
+    max_draft_m: 16.0
+    max_loa_m: 290.0
+    max_beam_m: 48.0
+    max_dwt: 150000
+    allowed_vessels: ["Handysize", "Supramax", "Panamax", "Capesize"]
+    handling_rate_tpd: 15000
+    turnaround_days_assumption: 5.0
+    waiting_days_assumption: 3.0
+    demurrage_usd_per_day: 14000
+
+  haldia:
+    name: "Haldia Dock Complex"
+    state: "West Bengal"
+    prototype_assumption: true
+    max_draft_m: 8.5
+    max_loa_m: 190.0
+    max_beam_m: 28.0
+    max_dwt: 35000
+    allowed_vessels: ["Handysize"]
+    handling_rate_tpd: 12000
+    turnaround_days_assumption: 4.5
+    waiting_days_assumption: 2.5
+    demurrage_usd_per_day: 10000
+
+vessel_specifications:
+  Handysize:
+    target_key: "bdi_hsi"
+    min_dwt: 10000
+    max_dwt: 39999
+    typical_capacity_mt: 30000
+    typical_draft_m: 8.2
+    typical_loa_m: 180.0
+    typical_beam_m: 28.0
+    daily_hire_multiplier_usd: 15.0 # USD/day per index point approximation
+  Supramax:
+    target_key: "bdi_si"
+    min_dwt: 40000
+    max_dwt: 64999
+    typical_capacity_mt: 55000
+    typical_draft_m: 12.5
+    typical_loa_m: 199.0
+    typical_beam_m: 32.2
+    daily_hire_multiplier_usd: 14.0
+  Panamax:
+    target_key: "bdi_pi"
+    min_dwt: 65000
+    max_dwt: 89999
+    typical_capacity_mt: 75000
+    typical_draft_m: 14.2
+    typical_loa_m: 225.0
+    typical_beam_m: 32.3
+    daily_hire_multiplier_usd: 12.5
+  Capesize:
+    target_key: "bdi_ci"
+    min_dwt: 90000
+    max_dwt: 220000
+    typical_capacity_mt: 170000
+    typical_draft_m: 18.2
+    typical_loa_m: 290.0
+    typical_beam_m: 45.0
+    daily_hire_multiplier_usd: 10.0

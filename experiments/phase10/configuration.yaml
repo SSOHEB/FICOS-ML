@@ -1,0 +1,22 @@
+champion_model: Ridge Regression (alpha=1.0)
+decision_rules:
+  cost_saving_threshold_pct: 2.0
+  price_rise_threshold_pct: 1.5
+features_path: data/features/freight_features.csv
+forecast_horizon_days: 7
+ports_config: configs/ports.yaml
+supported_ports:
+- paradip
+- vizag
+- gangavaram
+- gopalpur
+- dhamra
+- sagar_sandheads
+- haldia
+supported_vessels:
+- Handysize
+- Supramax
+- Panamax
+- Capesize
+system: FICOS Freight Intelligence & Charter Optimization System
+version: 1.0.0-MVP
